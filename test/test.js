@@ -8,5 +8,11 @@ describe("Pencil Testing Suite", function() {
             let pencil = new Pencil();
             expect(pencil.write("Test")).to.equal("Test");
         });
+
+        it("Should return concatenated string when called multiple times", function() {
+            let pencil = new Pencil();
+            expect(pencil.write("Hello")).to.equal("Hello");
+            expect(pencil.write("World")).to.equal("HelloWorld");
+        });
     });
 });

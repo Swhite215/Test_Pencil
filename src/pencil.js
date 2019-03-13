@@ -1,6 +1,10 @@
 class Pencil {
+    constructor() {
+        this.paper = [];
+    }
     write(text) {
-        return text;
+        this.paper.push(String(text));
+        return this.paper.join("");
     }
 }
 
