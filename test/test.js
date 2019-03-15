@@ -15,4 +15,11 @@ describe("Pencil Testing Suite", function() {
             expect(pencil.write("World")).to.equal("HelloWorld");
         });
     });
+
+    describe("Pencil durability", function() {
+        it("Should intialize with a durability value", function() {
+            let pencil = new Pencil(100);
+            expect(pencil.durability).to.equal(100);
+        });
+    });
 });

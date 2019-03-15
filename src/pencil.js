@@ -1,6 +1,7 @@
 class Pencil {
-    constructor() {
+    constructor(durability) {
         this.paper = [];
+        this.durability = Number(durability);
     }
     write(text) {
         this.paper.push(String(text));
