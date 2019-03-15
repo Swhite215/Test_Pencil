@@ -42,5 +42,15 @@ describe("Pencil Testing Suite", function() {
             pencil.write("T  T");
             expect(pencil.durability).to.equal(96);
         });
+
+        it("Should not degrade if writing newlines", function() {
+            let pencil = new Pencil(100);
+            pencil.write("T\n\nT");
+            expect(pencil.durability).to.equal(96);
+
+            pencil.write(`a
+            `);
+            expect(pencil.durability).to.equal(95);
+        });
     });
 });
