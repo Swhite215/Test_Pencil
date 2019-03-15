@@ -22,10 +22,19 @@ describe("Pencil Testing Suite", function() {
             expect(pencil.durability).to.equal(100);
         });
 
-        it("Should degrade durability by 1 when writing lower case characters", function() {
+        it("Should degrade by 1 when writing lower case characters", function() {
             let pencil = new Pencil(100);
             pencil.write("text");
             expect(pencil.durability).to.equal(96);
+        });
+
+        it("Should degrade by 2 when writing upper case characters", function() {
+            let pencil = new Pencil(100);
+            pencil.write("TEST");
+            expect(pencil.durability).to.equal(92);
+
+            pencil.write("Test");
+            expect(pencil.durability).to.equal(87);
         });
     });
 });
