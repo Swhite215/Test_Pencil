@@ -7,7 +7,9 @@ class Pencil {
         let textToWrite = text.split("");
 
         for (let letter of textToWrite) {
-            if (letter.toUpperCase() === letter) {
+            if (letter === " ") {
+                continue;
+            } else if (letter.toUpperCase() === letter) {
                 this.durability -= 2;
             } else {
                 this.durability -= 1;

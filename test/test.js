@@ -36,5 +36,11 @@ describe("Pencil Testing Suite", function() {
             pencil.write("Test");
             expect(pencil.durability).to.equal(87);
         });
+
+        it("Should not degrade if writing spaces", function() {
+            let pencil = new Pencil(100);
+            pencil.write("T  T");
+            expect(pencil.durability).to.equal(96);
+        });
     });
 });
