@@ -60,9 +60,7 @@ describe("Pencil Testing Suite", function() {
             let pencilTwo = new Pencil(4);
             expect(pencilTwo.write("Testing")).to.equal("Tes    ");
         });
-    });
 
-    describe("Pencil Sharpness", function() {
         it("Should regain durability each time it is sharpened", function() {
             let pencil = new Pencil(4);
             pencil.write("Hello World");
