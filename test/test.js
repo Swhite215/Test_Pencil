@@ -52,5 +52,13 @@ describe("Pencil Testing Suite", function() {
             `);
             expect(pencil.durability).to.equal(95);
         });
+
+        it("Should cause spaces to be written if fully degraded", function() {
+            let pencil = new Pencil(4);
+            expect(pencil.write("write")).to.equal("writ ");
+
+            let pencilTwo = new Pencil(4);
+            expect(pencilTwo.write("Testing")).to.equal("Tes    ");
+        });
     });
 });

@@ -1,23 +1,27 @@
 class Pencil {
-    constructor(durability) {
-        this.paper = [];
+    constructor(durability = 100) {
+        this.paper = "";
         this.durability = Number(durability);
     }
     write(text) {
         let textToWrite = text.split("");
 
         for (let letter of textToWrite) {
-            if (letter === " " || letter === "\n") {
-                continue;
-            } else if (letter.toUpperCase() === letter) {
-                this.durability -= 2;
+            if (this.durability <= 0) {
+                this.paper += " ";
             } else {
-                this.durability -= 1;
+                if (letter === " " || letter === "\n") {
+                    continue;
+                } else if (letter.toUpperCase() === letter) {
+                    this.durability -= 2;
+                    this.paper += letter;
+                } else {
+                    this.durability -= 1;
+                    this.paper += letter;
+                }
             }
         }
-
-        this.paper.push(String(text));
-        return this.paper.join("");
+        return this.paper;
     }
 }
 
