@@ -27,7 +27,12 @@ class Pencil {
     }
 
     sharpen() {
-        this.durability = this.initialDurability;
+        if (this.length <= 0) {
+            return;
+        } else {
+            this.durability = this.initialDurability;
+            this.length--;
+        }
     }
 }
 

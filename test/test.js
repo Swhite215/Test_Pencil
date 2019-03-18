@@ -16,7 +16,7 @@ describe("Pencil Testing Suite", function() {
         });
     });
 
-    describe("Pencil durability", function() {
+    describe("Pencil Durability", function() {
         it("Should intialize with a durability value", function() {
             let pencil = new Pencil(100);
             expect(pencil.durability).to.equal(100);
@@ -73,6 +73,17 @@ describe("Pencil Testing Suite", function() {
         it("Should intialize with a length value", function() {
             let pencil = new Pencil(4, 5);
             expect(pencil.length).to.equal(5);
+        });
+
+        it("Should descrease by one each time it is sharpened", function() {
+            let pencil = new Pencil(4, 2);
+            pencil.write("test");
+            pencil.sharpen();
+            pencil.write("test");
+            pencil.sharpen();
+            pencil.write("test");
+            pencil.sharpen();
+            expect(pencil.durability).to.equal(0);
         });
     });
 });
