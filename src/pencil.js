@@ -1,8 +1,9 @@
 class Pencil {
-    constructor(durability = 100) {
+    constructor(durability = 100, length = 5) {
         this.paper = "";
         this.durability = Number(durability);
         this.initialDurability = Number(durability);
+        this.length = length;
     }
     write(text) {
         let textToWrite = text.split("");

@@ -68,4 +68,11 @@ describe("Pencil Testing Suite", function() {
             expect(pencil.durability).to.equal(4);
         });
     });
+
+    describe("Pencil Length", function() {
+        it("Should intialize with a length value", function() {
+            let pencil = new Pencil(4, 5);
+            expect(pencil.length).to.equal(5);
+        });
+    });
 });
