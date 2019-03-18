@@ -2,6 +2,7 @@ class Pencil {
     constructor(durability = 100) {
         this.paper = "";
         this.durability = Number(durability);
+        this.initialDurability = Number(durability);
     }
     write(text) {
         let textToWrite = text.split("");
@@ -22,6 +23,10 @@ class Pencil {
             }
         }
         return this.paper;
+    }
+
+    sharpen() {
+        this.durability = this.initialDurability;
     }
 }
 

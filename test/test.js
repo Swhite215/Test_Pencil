@@ -61,4 +61,13 @@ describe("Pencil Testing Suite", function() {
             expect(pencilTwo.write("Testing")).to.equal("Tes    ");
         });
     });
+
+    describe("Pencil Sharpness", function() {
+        it("Should regain durability each time it is sharpened", function() {
+            let pencil = new Pencil(4);
+            pencil.write("Hello World");
+            pencil.sharpen();
+            expect(pencil.durability).to.equal(4);
+        });
+    });
 });
