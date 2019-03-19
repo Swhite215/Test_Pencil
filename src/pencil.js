@@ -38,6 +38,9 @@ class Pencil {
 
     erase(text) {
         let lengthOfSpaces = text.length;
+        let numberOfCharacters = text.replace(/\s|\n|\r/g, "").length;
+        this.eraserDurability -= numberOfCharacters;
+
         let replace = `${text}(?!.${text})`;
         let re = new RegExp(replace);
         let spaceString = " ".repeat(lengthOfSpaces);
