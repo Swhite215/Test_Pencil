@@ -86,4 +86,18 @@ describe("Pencil Testing Suite", function() {
             expect(pencil.durability).to.equal(0);
         });
     });
+
+    describe("Pencil Erase", function() {
+        it("Should replace last occurence of text with spaces", function() {
+            let pencil = new Pencil(20, 5);
+            pencil.write("Hello World.");
+            pencil.erase("World");
+            expect(pencil.paper).to.equal("Hello      .");
+
+            let pencilTwo = new Pencil(20, 5);
+            pencilTwo.write("world world world world");
+            pencilTwo.erase("world");
+            expect(pencilTwo.paper).to.equal("world world world      ");
+        });
+    });
 });

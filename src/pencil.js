@@ -13,7 +13,7 @@ class Pencil {
                 this.paper += " ";
             } else {
                 if (letter === " " || letter === "\n") {
-                    continue;
+                    this.paper += letter;
                 } else if (letter.toUpperCase() === letter) {
                     this.durability -= 2;
                     this.paper += letter;
@@ -33,6 +33,14 @@ class Pencil {
             this.durability = this.initialDurability;
             this.length--;
         }
+    }
+
+    erase(text) {
+        let lengthOfSpaces = text.length;
+        let replace = `${text}(?!.${text})`;
+        let re = new RegExp(replace);
+        let spaceString = " ".repeat(lengthOfSpaces);
+        this.paper = this.paper.replace(re, spaceString);
     }
 }
 
