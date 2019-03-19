@@ -98,6 +98,9 @@ describe("Pencil Testing Suite", function() {
             pencilTwo.write("world world world world");
             pencilTwo.erase("world");
             expect(pencilTwo.paper).to.equal("world world world      ");
+
+            pencilTwo.erase("world");
+            expect(pencilTwo.paper).to.equal("world world            ");
         });
     });
 });
