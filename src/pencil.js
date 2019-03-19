@@ -36,15 +36,36 @@ class Pencil {
         }
     }
 
+    eraseCharacters(text, length) {
+        let replace = `${text}(?!.${text})`;
+        let re = new RegExp(replace);
+        let spaceString = " ".repeat(length);
+        this.paper = this.paper.replace(re, spaceString);
+    }
+
     erase(text) {
         let lengthOfSpaces = text.length;
         let numberOfCharacters = text.replace(/\s|\n|\r/g, "").length;
         this.eraserDurability -= numberOfCharacters;
 
-        let replace = `${text}(?!.${text})`;
-        let re = new RegExp(replace);
-        let spaceString = " ".repeat(lengthOfSpaces);
-        this.paper = this.paper.replace(re, spaceString);
+        if (this.eraserDurability < 0) {
+            let lengthToErase = numberOfCharacters + this.eraserDurability;
+            if (lengthToErase <= 0) {
+                return;
+            } else {
+                let reverseCharacters = [];
+                let textArray = text.split("");
+
+                for (var i = lengthToErase; i > 0; i--) {
+                    reverseCharacters.push(textArray.pop());
+                }
+
+                let newText = reverseCharacters.reverse().join("");
+                this.eraseCharacters(newText, lengthToErase);
+            }
+        } else {
+            this.eraseCharacters(text, lengthOfSpaces);
+        }
     }
 }
 

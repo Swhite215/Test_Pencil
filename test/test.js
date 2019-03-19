@@ -102,6 +102,15 @@ describe("Pencil Testing Suite", function() {
             pencil.erase("is a");
             expect(pencil.eraserDurability).to.equal(3);
         });
+
+        it("Should not erase when eraser durability is zero", function() {
+            let pencil = new Pencil(20, 5, 3);
+            pencil.write("Buffalo Bill");
+            pencil.erase("Bill");
+            expect(pencil.paper).to.equal("Buffalo B   ");
+            pencil.erase("Buffalo");
+            expect(pencil.paper).to.equal("Buffalo B   ");
+        });
     });
 
     describe("Pencil Erase Method", function() {
