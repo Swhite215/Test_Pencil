@@ -1,24 +1,25 @@
 class Pencil {
-    constructor(durability = 100, length = 5) {
+    constructor(pencilDurability = 100, length = 5, eraserDurability = 50) {
         this.paper = "";
-        this.durability = Number(durability);
-        this.initialDurability = Number(durability);
+        this.pencilDurability = Number(pencilDurability);
+        this.initialPencilDurability = Number(pencilDurability);
         this.length = length;
+        this.eraserDurability = Number(eraserDurability);
     }
     write(text) {
         let textToWrite = text.split("");
 
         for (let letter of textToWrite) {
-            if (this.durability <= 0) {
+            if (this.pencilDurability <= 0) {
                 this.paper += " ";
             } else {
                 if (letter === " " || letter === "\n") {
                     this.paper += letter;
                 } else if (letter.toUpperCase() === letter) {
-                    this.durability -= 2;
+                    this.pencilDurability -= 2;
                     this.paper += letter;
                 } else {
-                    this.durability -= 1;
+                    this.pencilDurability -= 1;
                     this.paper += letter;
                 }
             }
@@ -30,7 +31,7 @@ class Pencil {
         if (this.length <= 0) {
             return;
         } else {
-            this.durability = this.initialDurability;
+            this.pencilDurability = this.initialPencilDurability;
             this.length--;
         }
     }
